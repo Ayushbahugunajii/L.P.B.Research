@@ -1,0 +1,34 @@
+{
+  "name": "study-search-engine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Production-grade Study Search Engine for Videos, Papers, and Web Articles with Passage Highlighting",
+  "packageManager": "pnpm@10.33.2",
+  "scripts": {
+    "dev": "pnpm --parallel --filter \"./apps/*\" dev",
+    "dev:api": "pnpm --filter @study-search/api dev",
+    "dev:worker": "pnpm --filter @study-search/worker dev",
+    "dev:web": "pnpm --filter @study-search/web dev",
+    "build": "pnpm --filter @study-search/shared build && pnpm --filter @study-search/api build && pnpm --filter @study-search/worker build && pnpm --filter @study-search/web build",
+    "start": "pnpm --filter @study-search/api start",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "playwright test",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.1",
+    "@types/supertest": "^6.0.2",
+    "@typescript/native-preview": "7.0.0-dev.20260707.2",
+    "eslint": "^9.17.0",
+    "prettier": "^3.4.2",
+    "supertest": "^7.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^7.0.2",
+    "vitest": "^2.1.8"
+  }
+}
